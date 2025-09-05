@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_typeahead/src/common/field/typeahead_field.dart';
 import 'package:flutter_typeahead/src/common/base/types.dart';
+import 'package:flutter_typeahead/src/common/field/typeahead_field.dart';
 import 'package:flutter_typeahead/src/material/material_defaults.dart';
 
 /// {@template flutter_typeahead.TypeAheadField}
@@ -21,6 +21,7 @@ class TypeAheadField<T> extends RawTypeAheadField<T> {
     super.direction,
     SuggestionsErrorBuilder? errorBuilder,
     super.focusNode,
+    super.enablePointerIntercepting,
     super.hideKeyboardOnDrag,
     super.hideOnEmpty,
     super.hideOnError,

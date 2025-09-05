@@ -7,6 +7,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## Unreleased
 ### Added
 - Highlighted suggestion in controller
+- Add new `enablePointerIntercepting` parameter
 
 ## 5.2.0 - 2024-02-08
 ### Added

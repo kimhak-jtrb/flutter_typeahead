@@ -1,10 +1,9 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_typeahead/src/common/base/suggestions_controller.dart';
+import 'package:flutter_typeahead/src/common/base/types.dart';
+import 'package:flutter_typeahead/src/common/box/suggestions_list.dart';
 import 'package:flutter_typeahead/src/common/field/suggestions_field.dart';
 import 'package:flutter_typeahead/src/common/search/suggestions_search.dart';
-import 'package:flutter_typeahead/src/common/base/suggestions_controller.dart';
-import 'package:flutter_typeahead/src/common/box/suggestions_list.dart';
-
-import 'package:flutter_typeahead/src/common/base/types.dart';
 import 'package:pointer_interceptor/pointer_interceptor.dart';
 
 /// {@template flutter_typeahead.RawTypeAheadField}
@@ -26,6 +25,7 @@ abstract class RawTypeAheadField<T> extends StatefulWidget {
     required this.errorBuilder,
     this.focusNode,
     this.hideKeyboardOnDrag = false,
+    this.enablePointerIntercepting = true,
     this.hideOnEmpty = false,
     this.hideOnError = false,
     this.hideOnLoading = false,
@@ -121,6 +121,9 @@ abstract class RawTypeAheadField<T> extends StatefulWidget {
 
   /// {@macro flutter_typeahead.SuggestionsList.hideOnEmpty}
   final bool? hideOnEmpty;
+
+  /// {@macro flutter_typeahead.SuggestionsList.enablePointerIntercepting}
+  final bool enablePointerIntercepting;
 
   /// {@macro flutter_typeahead.SuggestionsList.loadingBuilder}
   final WidgetBuilder loadingBuilder;
@@ -232,6 +235,7 @@ class _RawTypeAheadFieldState<T> extends State<RawTypeAheadField<T>> {
         listBuilder: widget.listBuilder,
       ),
       child: PointerInterceptor(
+        intercepting: widget.enablePointerIntercepting,
         child: widget.builder(
           context,
           controller,
